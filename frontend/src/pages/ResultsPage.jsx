@@ -69,10 +69,10 @@ export default function ResultsPage({ result, onReset, fileName }) {
   }
 
   return (
-    <div style={pageWrapperStyle}>
-      <div style={backgroundBreakoutStyle}><LiquidBackground /></div>
+    <div style = {pageWrapperStyle}>
+      <div style = {backgroundBreakoutStyle}><LiquidBackground /></div>
 
-      <div style={{
+      <div style = {{
         position: 'relative', zIndex: 1,
         maxWidth: 860, margin: '0 auto',
         padding: '72px 24px 100px',
@@ -80,26 +80,26 @@ export default function ResultsPage({ result, onReset, fileName }) {
       }}>
 
         {/* ── PAGE HEADER ── */}
-        <div style={{
+        <div style = {{
           display: 'flex', alignItems: 'flex-start',
           justifyContent: 'space-between',
           gap: '24px', marginBottom: '40px', flexWrap: 'wrap',
         }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
-              <div style={{
+            <div style = {{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+              <div style = {{
                 width: 32, height: 32, background: '#b829ff', borderRadius: '7px',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: 'var(--font-mono)', fontWeight: 800, fontSize: '12px', color: '#fff',
               }}>
                 ST
               </div>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.22em' }}>
+              <span style = {{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.4)', letterSpacing: '0.22em' }}>
                 SEPARATION COMPLETE
               </span>
             </div>
 
-            <h1 style={{
+            <h1 style = {{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(28px, 5vw, 48px)',
               fontWeight: 900, color: '#fff',
@@ -109,9 +109,9 @@ export default function ResultsPage({ result, onReset, fileName }) {
               {stems.length} Stem{stems.length !== 1 ? 's' : ''} Isolated
             </h1>
 
-            <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
+            <div style = {{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
               {domain_detected && (
-                <div style={{
+                <div style = {{
                   fontFamily: 'var(--font-mono)', fontSize: '11px', fontWeight: 700,
                   color: '#b829ff', background: 'rgba(184,41,255,0.12)',
                   border: '1px solid rgba(184,41,255,0.3)',
@@ -121,17 +121,17 @@ export default function ResultsPage({ result, onReset, fileName }) {
                 </div>
               )}
               {processing_time_seconds != null && (
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.05em' }}>
+                <div style = {{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.05em' }}>
                   PROCESSED IN{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.7)' }}>{processing_time_seconds.toFixed(1)}s</span>
+                  <span style = {{ color: 'rgba(255,255,255,0.7)' }}>{processing_time_seconds.toFixed(1)}s</span>
                 </div>
               )}
             </div>
           </div>
 
           <button
-            onClick={onReset}
-            style={{
+            onClick = {onReset}
+            style = {{
               padding: '12px 22px',
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -141,19 +141,19 @@ export default function ResultsPage({ result, onReset, fileName }) {
               whiteSpace: 'nowrap', flexShrink: 0,
               transition: 'all 200ms ease',
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.color = '#fff' }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
+            onMouseEnter = {e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)'; e.currentTarget.style.color = '#fff' }}
+            onMouseLeave = {e => { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = 'rgba(255,255,255,0.7)' }}
           >
             ← NEW FILE
           </button>
         </div>
 
         {/* Divider */}
-        <div style={{ height: '1px', background: 'linear-gradient(to right, rgba(184,41,255,0.5), transparent)', marginBottom: '32px', opacity: 0.5 }} />
+        <div style = {{ height: '1px', background: 'linear-gradient(to right, rgba(184,41,255,0.5), transparent)', marginBottom: '32px', opacity: 0.5 }} />
 
         {/* ── FILE INFO STRIP ── */}
         {fileName && (
-          <div style={{
+          <div style = {{
             display: 'flex',
             alignItems: 'center',
             gap: '14px',
@@ -166,7 +166,7 @@ export default function ResultsPage({ result, onReset, fileName }) {
             animation: 'fadeUp 0.4s ease 0.1s both',
           }}>
             {/* File icon */}
-            <div style={{
+            <div style = {{
               width: 36, height: 36, flexShrink: 0,
               background: 'rgba(184,41,255,0.12)',
               border: '1px solid rgba(184,41,255,0.25)',
@@ -178,7 +178,7 @@ export default function ResultsPage({ result, onReset, fileName }) {
             </div>
 
             {/* Filename + meta */}
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div style = {{ flex: 1, minWidth: 0 }}>
               <div style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '13px', fontWeight: 600,
@@ -187,7 +187,7 @@ export default function ResultsPage({ result, onReset, fileName }) {
               }}>
                 {fileName}
               </div>
-              <div style={{
+              <div style = {{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '10px',
                 color: 'rgba(255,255,255,0.35)',
@@ -200,7 +200,7 @@ export default function ResultsPage({ result, onReset, fileName }) {
             </div>
 
             {/* Status pill */}
-            <div style={{
+            <div style = {{
               flexShrink: 0,
               padding: '4px 12px',
               background: 'rgba(74,222,128,0.1)',
@@ -217,10 +217,15 @@ export default function ResultsPage({ result, onReset, fileName }) {
           </div>
         )}
 
-        {/* ── STEMS: single column ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        {/* ── STEMs ── */}
+        <div style = {{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {stems.map((stem, i) => (
-            <StemCard key={stem.id} stem={stem} index={i} animDelay={i * 80} />
+            <StemCard 
+            key = {stem.id} 
+            stem = {stem} 
+            index = {i} 
+            animDelay = {i * 80} />
+
           ))}
         </div>
       </div>
