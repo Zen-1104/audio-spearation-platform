@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap');
+
+:root {
+  --bg-base: #0a0a0b;
+  --bg-surface: #111114;
+  --bg-elevated: #18181d;
+  --bg-card: #1e1e25;
+  --border: #2a2a35;
+  --border-bright: #3a3a48;
+
+  --amber: #bc05ff;
+  --amber-dim: #c47d0e;
+  --amber-glow: rgba(245, 166, 35, 0.15);
+  --amber-glow-strong: rgba(245, 166, 35, 0.3);
+
+  --text-primary: #f0eee8;
+  --text-secondary: #9a9898;
+  --text-muted: rgba(255, 255, 255, 0.6);
+
+  --green: #4ade80;
+  --red: #f87171;
+  --blue: #60a5fa;
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --radius: 6px;
+  --radius-lg: 12px;
+  --transition: 200ms ease;
+
+  background-color: #000 !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes blob1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  25%  { transform: translate(120px, -150px) scale(1.15); }
+  50%  { transform: translate(-80px, 100px) scale(0.9); }
+  75%  { transform: translate(160px, 80px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  30%  { transform: translate(-140px, 120px) scale(1.2); }
+  60%  { transform: translate(100px, -100px) scale(0.88); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  40%  { transform: translate(80px, 160px) scale(1.1); }
+  70%  { transform: translate(-120px, -80px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob4 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  35%  { transform: translate(-100px, -120px) scale(1.18); }
+  65%  { transform: translate(140px, 60px) scale(0.92); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.mesh-background {
+  background-color: #050605;
+  overflow: hidden;
+  /* THE BULLETPROOF FIX: Break out of all React containers */
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* Keeps it in the back */
+}
+
+.mesh-blobs {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
+  filter: blur(110px) saturate(1.4);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.mesh-blob-1 {
+  width: 75vw; height: 75vw;
+  top: -5%; left: -20%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.85) 0%, transparent 65%);
+  animation: blob1 16s ease-in-out infinite;
+}
+.mesh-blob-2 {
+  width: 70vw; height: 70vw;
+  top: 10%; right: -20%;
+  background: radial-gradient(circle, rgba(105, 0, 255, 0.8) 0%, transparent 65%);
+  animation: blob2 21s ease-in-out infinite;
+}
+.mesh-blob-3 {
+  width: 60vw; height: 60vw;
+  bottom: -15%; left: 15%;
+  background: radial-gradient(circle, rgba(0, 255, 224, 0.65) 0%, transparent 65%);
+  animation: blob3 25s ease-in-out infinite;
+}
+.mesh-blob-4 {
+  width: 50vw; height: 50vw;
+  top: 30%; left: 25%;
+  background: radial-gradient(circle, rgba(150, 0, 150, 0.7) 0%, transparent 65%);
+  animation: blob4 19s ease-in-out infinite;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--amber-dim); }
+
+/* Utility classes */
+.mono { font-family: var(--font-mono); }
+.text-amber { color: var(--amber); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+/* Page transition */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.2); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.page-enter {
+  animation: fadeUp 0.4s ease forwards;
+}
+
+/* Audio player overrides */
+audio {
+  width: 100%;
+  height: 36px;
+  border-radius: var(--radius);
+  accent-color: var(--amber);
+  background: transparent;
+}
+
+audio::-webkit-media-controls-panel {
+  background: var(--bg-card);
+}
+
+/* Button base */
+button {
+  cursor: pointer;
+  font-family: var(--font-display);
+  transition: all var(--transition);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* Monopo-style buttery smooth slide entrance */
+@keyframes slideUpReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. THE SLOW SCROLL WRAPPER */
+.reveal-wrapper {
+  opacity: 0;
+  transform: translateY(80px); 
+  transition: all 2.8s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.reveal-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. THE FAST HOVER CARD */
+.agency-card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+  height: 100%;
+}
+
+.agency-card:hover {
+  transform: translateY(-8px) scale(1.02); /* Scaled down to 1.02 so it isn't too extreme */
+}
+
+/* 3. IMAGES AND TEXT (Same as before) */
+.agency-card-visual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.agency-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: filter 0.3s ease;
+  filter: brightness(0.7);
+}
+
+.agency-card-title {
+  transition: color 0.3s ease;
+}
+
+.agency-card:hover .agency-card-title {
+  color: #a800d4; 
+}
+
+.agency-card:hover .agency-card-inner {
+  filter: brightness(1); 
+}
