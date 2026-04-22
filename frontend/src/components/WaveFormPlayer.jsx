@@ -26,10 +26,10 @@ function LedVolumeControl({ volume, onChange }) {
 
   return (
     <div
-      ref={containerRef}
-      onPointerDown={handlePointerDown}
-      onPointerMove={handlePointerMove}
-      style={{
+      ref = {containerRef}
+      onPointerDown = {handlePointerDown}
+      onPointerMove = {handlePointerMove}
+      style = {{
         display: 'flex',
         flexDirection: 'column-reverse',
         gap: '3px',
@@ -46,7 +46,7 @@ function LedVolumeControl({ volume, onChange }) {
         const b = 50
         const color = `rgb(${r}, ${g}, ${b})`
         return (
-          <div key={i} style={{
+          <div key = {i} style = {{
             width: '32px',
             height: '4px',
             borderRadius: '1px',
@@ -122,13 +122,13 @@ export default function WaveformPlayer({ audioUrl, accentColor = '#b829ff' }) {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%' }}>
-      <audio ref={mediaRef} src={audioUrl} preload="auto" style={{ display: 'none' }} />
+    <div style = {{ display: 'flex', alignItems: 'center', gap: '16px', width: '100%' }}>
+      <audio ref = {mediaRef} src = {audioUrl} preload = "auto" style = {{ display: 'none' }} />
 
       {/* Play / pause */}
       <button
-        onClick={togglePlay}
-        style={{
+        onClick = {togglePlay}
+        style = {{
           width: '44px', height: '44px',
           borderRadius: '50%',
           backgroundColor: accentColor,
@@ -143,18 +143,18 @@ export default function WaveformPlayer({ audioUrl, accentColor = '#b829ff' }) {
           transition: 'opacity 200ms ease',
           boxShadow: `0 0 16px ${accentColor}66`,
         }}
-        onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
-        onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+        onMouseEnter = {e => e.currentTarget.style.opacity = '0.85'}
+        onMouseLeave = {e => e.currentTarget.style.opacity = '1'}
       >
         {isPlaying ? '⏸' : '▶'}
       </button>
 
       {/* Waveform */}
-      <div ref={containerRef} style={{ flex: 1, cursor: 'pointer' }} />
+      <div ref = {containerRef} style = {{ flex: 1, cursor: 'pointer' }} />
 
-      {/* LED volume meter */}
-      <div style={{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
-        <LedVolumeControl volume={volume} onChange={handleVolumeChange} />
+      {/* volume meter */}
+      <div style = {{ flexShrink: 0, display: 'flex', alignItems: 'center' }}>
+        <LedVolumeControl volume = {volume} onChange = {handleVolumeChange} />
       </div>
     </div>
   )

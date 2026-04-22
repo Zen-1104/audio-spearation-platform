@@ -70,13 +70,12 @@ html {
 .mesh-background {
   background-color: #050605;
   overflow: hidden;
-  /* THE BULLETPROOF FIX: Break out of all React containers */
   position: fixed; 
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0; /* Keeps it in the back */
+  z-index: 0;
 }
 
 .mesh-blobs {
@@ -208,7 +207,6 @@ button:disabled {
   outline-offset: 3px;
 }
 
-/* Monopo-style buttery smooth slide entrance */
 @keyframes slideUpReveal {
   0% {
     opacity: 0;
@@ -220,7 +218,6 @@ button:disabled {
   }
 }
 
-/* 1. THE SLOW SCROLL WRAPPER */
 .reveal-wrapper {
   opacity: 0;
   transform: translateY(80px); 
@@ -232,7 +229,6 @@ button:disabled {
   transform: translateY(0);
 }
 
-/* 2. THE FAST HOVER CARD */
 .agency-card {
   display: flex;
   flex-direction: column;
@@ -243,10 +239,9 @@ button:disabled {
 }
 
 .agency-card:hover {
-  transform: translateY(-8px) scale(1.02); /* Scaled down to 1.02 so it isn't too extreme */
+  transform: translateY(-8px) scale(1.02); 
 }
 
-/* 3. IMAGES AND TEXT (Same as before) */
 .agency-card-visual {
   width: 100%;
   aspect-ratio: 16 / 9;

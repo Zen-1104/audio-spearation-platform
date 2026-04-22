@@ -42,11 +42,11 @@ export default function FileUpload({ file, onFile, error }) {
     <div>
       {/* Drop zone */}
       <div
-        onClick={() => inputRef.current?.click()}
-        onDrop={onDrop}
-        onDragOver={onDragOver}
-        onDragLeave={onDragLeave}
-        style={{
+        onClick = {() => inputRef.current?.click()}
+        onDrop = {onDrop}
+        onDragOver = {onDragOver}
+        onDragLeave = {onDragLeave}
+        style = {{
           border: `1.5px dashed ${borderColor}`,
           borderRadius: 'var(--radius-lg)',
           background: bgColor,
@@ -58,8 +58,8 @@ export default function FileUpload({ file, onFile, error }) {
           overflow: 'hidden',
         }}
       >
-        {/* Waveform decoration */}
-        <div style={{
+        {/* Waveform */}
+        <div style = {{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -69,8 +69,8 @@ export default function FileUpload({ file, onFile, error }) {
         }}>
           {Array.from({ length: 18 }).map((_, i) => (
             <div
-              key={i}
-              style={{
+              key = {i}
+              style = {{
                 width: 3,
                 borderRadius: 2,
                 background: file ? 'var(--green)' : dragging ? 'var(--amber)' : 'var(--border-bright)',
@@ -84,7 +84,7 @@ export default function FileUpload({ file, onFile, error }) {
 
         {file ? (
           <div>
-            <p style={{
+            <p style = {{
               fontFamily: 'var(--font-mono)',
               fontSize: '13px',
               color: 'var(--green)',
@@ -93,7 +93,7 @@ export default function FileUpload({ file, onFile, error }) {
             }}>
               ✓ FILE SELECTED
             </p>
-            <p style={{
+            <p style = {{
               fontSize: '14px',
               color: 'var(--text-primary)',
               fontWeight: 600,
@@ -102,7 +102,7 @@ export default function FileUpload({ file, onFile, error }) {
             }}>
               {file.name}
             </p>
-            <div style={{
+            <div style = {{
               display: 'flex',
               justifyContent: 'center',
               gap: '16px',
@@ -110,14 +110,14 @@ export default function FileUpload({ file, onFile, error }) {
               fontSize: '11px',
               color: 'var(--text-muted)',
             }}>
-              <span>{formatBytes(file.size)}</span>
-              <span>·</span>
-              <span>{file.type || 'audio'}</span>
+              <span> {formatBytes(file.size)} </span>
+              <span> · </span>
+              <span> {file.type || 'audio'} </span>
             </div>
           </div>
         ) : (
           <div>
-            <p style={{
+            <p style = {{
               fontSize: '15px',
               color: dragging ? 'var(--amber)' : 'var(--text-secondary)',
               fontWeight: 600,
@@ -126,7 +126,7 @@ export default function FileUpload({ file, onFile, error }) {
             }}>
               {dragging ? 'Release to upload' : 'Drop your audio here'}
             </p>
-            <p style={{
+            <p style = {{
               fontFamily: 'var(--font-mono)',
               fontSize: '11px',
               color: 'var(--text-muted)',
@@ -138,17 +138,17 @@ export default function FileUpload({ file, onFile, error }) {
         )}
 
         <input
-          ref={inputRef}
-          type="file"
-          accept=".wav,.mp3,audio/wav,audio/mpeg"
-          style={{ display: 'none' }}
+          ref = {inputRef}
+          type = "file"
+          accept = ".wav,.mp3,audio/wav,audio/mpeg"
+          style = {{ display: 'none' }}
           onChange={onInputChange}
         />
       </div>
 
       {/* Validation error */}
       {error && (
-        <div style={{
+        <div style = {{
           marginTop: '10px',
           padding: '10px 14px',
           background: 'rgba(248,113,113,0.08)',
@@ -161,7 +161,7 @@ export default function FileUpload({ file, onFile, error }) {
           alignItems: 'center',
           gap: '8px',
         }}>
-          <span>⚠</span>
+          <span> ⚠ </span>
           {error}
         </div>
       )}
@@ -169,8 +169,8 @@ export default function FileUpload({ file, onFile, error }) {
       {/* Change file button */}
       {file && (
         <button
-          onClick={(e) => { e.stopPropagation(); onFile(null, null); inputRef.current.value = '' }}
-          style={{
+          onClick = {(e) => { e.stopPropagation(); onFile(null, null); inputRef.current.value = '' }}
+          style = {{
             marginTop: '10px',
             background: 'none',
             border: '1px solid var(--border)',

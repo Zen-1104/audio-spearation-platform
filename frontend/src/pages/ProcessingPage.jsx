@@ -9,10 +9,9 @@ export default function ProcessingPage({ fileName }) {
   }, [])
 
   return (
-    <div style={{ minHeight: '150vh', width: '100%', position: 'relative', backgroundColor: '#000' }}>
+    <div style = {{ minHeight: '150vh', width: '100%', position: 'relative', backgroundColor: '#000' }}>
       
-      {/* FULL-SCREEN BACKGROUND BREAKOUT */}
-      <div style={{
+      <div style = {{
         position: 'absolute',
         top: 0,
         left: '50%',
@@ -25,8 +24,8 @@ export default function ProcessingPage({ fileName }) {
         <LiquidBackground />
       </div>
 
-      {/* CENTERED CONTENT */}
-      <div style={{
+      {/* content */}
+      <div style = {{
         position: 'relative',
         zIndex: 1,
         maxWidth: 600,
@@ -35,7 +34,7 @@ export default function ProcessingPage({ fileName }) {
         animation: 'fadeUp 0.4s ease',
       }}>
         {fileName && (
-          <div style={{
+          <div style = {{
             padding: '12px 18px',
             background: 'rgba(255, 255, 255, 0.03)',
             backdropFilter: 'blur(10px)',
@@ -50,8 +49,8 @@ export default function ProcessingPage({ fileName }) {
             gap: '10px',
             overflow: 'hidden',
           }}>
-            <span style={{ color: '#b829ff' }}>▶</span>
-            <span style={{
+            <span style = {{ color: '#b829ff' }}> ▶ </span>
+            <span style = {{
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',

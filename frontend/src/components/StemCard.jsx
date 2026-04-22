@@ -10,16 +10,15 @@ const STEM_PALETTE = [
   { bg: 'rgba(255,200,50,0.10)', text: '#ffc832', border: 'rgba(255,200,50,0.35)', glow: 'rgba(255,200,50,0.18)', hex: '#ffc832' },
 ]
 
-// Signal bars — far right confidence display
 function ConfidenceReadout({ pct, colors, animDelay = 0 }) {
   const filled = Math.round((pct / 100) * 5)
   const heights = [7, 10, 13, 16, 19]
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px', flexShrink: 0 }}>
+    <div style = {{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '4px', flexShrink: 0 }}>
       {/* Bars */}
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '3px' }}>
+      <div style = {{ display: 'flex', alignItems: 'flex-end', gap: '3px' }}>
         {heights.map((h, i) => (
-          <div key={i} style={{
+          <div key = {i} style={{
             width: '4px',
             height: `${h}px`,
             borderRadius: '2px',
@@ -28,7 +27,7 @@ function ConfidenceReadout({ pct, colors, animDelay = 0 }) {
             transition: `background 0.3s ease ${animDelay + i * 80}ms, box-shadow 0.3s ease ${animDelay + i * 80}ms`,
           }} />
         ))}
-        <span style={{
+        <span style = {{
           fontFamily: 'var(--font-mono)',
           fontSize: '14px',
           fontWeight: 700,
@@ -41,7 +40,7 @@ function ConfidenceReadout({ pct, colors, animDelay = 0 }) {
         </span>
       </div>
       {/* Label */}
-      <span style={{
+      <span style = {{
         fontFamily: 'var(--font-mono)',
         fontSize: '9px',
         letterSpacing: '0.15em',
@@ -53,12 +52,11 @@ function ConfidenceReadout({ pct, colors, animDelay = 0 }) {
   )
 }
 
-// Fullscreen lightbox
 function SpectrogramLightbox({ src, name, onClose }) {
   return (
     <div
-      onClick={onClose}
-      style={{
+      onClick = {onClose}
+      style = {{
         position: 'fixed', inset: 0,
         background: 'rgba(0,0,0,0.9)',
         zIndex: 9999,
@@ -70,8 +68,8 @@ function SpectrogramLightbox({ src, name, onClose }) {
       }}
     >
       <div
-        onClick={e => e.stopPropagation()}
-        style={{
+        onClick = {e => e.stopPropagation()}
+        style = {{
           maxWidth: '90vw', maxHeight: '88vh',
           borderRadius: '12px', overflow: 'hidden',
           border: '1px solid rgba(255,255,255,0.12)',
@@ -79,21 +77,21 @@ function SpectrogramLightbox({ src, name, onClose }) {
           cursor: 'default',
         }}
       >
-        <div style={{
+        <div style = {{
           padding: '10px 16px',
           background: 'rgba(15,7,28,0.98)',
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           borderBottom: '1px solid rgba(255,255,255,0.07)',
         }}>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em' }}>
+          <span style = {{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'rgba(255,255,255,0.45)', letterSpacing: '0.12em' }}>
             {name} — SPECTROGRAM
           </span>
-          <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.45)', fontSize: '20px', cursor: 'pointer', lineHeight: 1, padding: '0 0 0 20px' }}>×</button>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.45)', fontSize: '20px', cursor: 'pointer', lineHeight: 1, padding: '0 0 0 20px' }}> × </button>
         </div>
         <img
-          src={src}
-          alt={`${name} spectrogram`}
-          style={{ display: 'block', maxWidth: '100%', maxHeight: 'calc(88vh - 44px)', objectFit: 'contain' }}
+          src = {src}
+          alt = {`${name} spectrogram`}
+          style = {{ display: 'block', maxWidth: '100%', maxHeight: 'calc(88vh - 44px)', objectFit: 'contain' }}
         />
       </div>
     </div>
@@ -128,12 +126,12 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
   return (
     <>
       {lightboxOpen && spectrogramUrl && (
-        <SpectrogramLightbox src={spectrogramUrl} name={stem.name} onClose={() => setLightboxOpen(false)} />
+        <SpectrogramLightbox src = {spectrogramUrl} name = {stem.name} onClose = {() => setLightboxOpen(false)} />
       )}
 
       <div
-        className="page-enter"
-        style={{
+        className = "page-enter"
+        style = {{
           animationDelay: `${animDelay}ms`,
           background: hovered
             ? 'linear-gradient(135deg, rgba(22,11,38,0.78) 0%, rgba(10,5,22,0.88) 100%)'
@@ -150,11 +148,11 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
             : '0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03)',
           transition: 'border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, background 220ms ease',
         }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter = {() => setHovered(true)}
+        onMouseLeave = {() => setHovered(false)}
       >
         {/* Left edge accent */}
-        <div style={{
+        <div style = {{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '3px',
           background: `linear-gradient(to bottom, ${colors.text}, transparent)`,
           opacity: hovered ? 0.9 : 0.35,
@@ -162,11 +160,11 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
         }} />
 
         {/* ── STEM INFO HEADER ── */}
-        <div style={{ padding: '18px 22px 14px 22px' }}>
+        <div style = {{ padding: '18px 22px 14px 22px' }}>
 
-          {/* Row 1: STEM 01 badge */}
-          <div style={{ marginBottom: '6px' }}>
-            <span style={{
+          {/* STEM 01 badge */}
+          <div style = {{ marginBottom: '6px' }}>
+            <span style = {{
               fontFamily: 'var(--font-mono)',
               fontSize: '9px',
               letterSpacing: '0.18em',
@@ -180,16 +178,16 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
             </span>
           </div>
 
-          {/* Row 2: Name + Tag (left) | Confidence (far right) */}
-          <div style={{
+          {/* Name + Tag | Confidence */}
+          <div style = {{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
           }}>
-            {/* Left: name + classification tag */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
-              <h3 style={{
+            {/* name + classification tag */}
+            <div style = {{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+              <h3 style = {{
                 fontFamily: 'var(--font-display)',
                 fontSize: '22px',
                 fontWeight: 800,
@@ -200,7 +198,7 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
               }}>
                 {stem.name}
               </h3>
-              <span style={{
+              <span style = {{
                 padding: '3px 11px',
                 borderRadius: '20px',
                 background: colors.bg,
@@ -216,7 +214,7 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
                 {stem.label}
               </span>
               {stem.bpm && (
-                <span style={{
+                <span style = {{
                   padding: '3px 10px',
                   borderRadius: '20px',
                   background: 'rgba(255,255,255,0.05)',
@@ -231,7 +229,7 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
                 </span>
               )}
               {stem.duration_seconds && (
-                <span style={{
+                <span style = {{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '11px',
                   color: 'rgba(255,255,255,0.3)',
@@ -243,18 +241,18 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
               )}
             </div>
 
-            {/* Right: confidence readout */}
-            <ConfidenceReadout pct={pct} colors={colors} animDelay={animDelay + 200} />
+            {/* confidence readout */}
+            <ConfidenceReadout pct = {pct} colors = {colors} animDelay = {animDelay + 200} />
           </div>
 
           {/* Unrecognised fallback */}
           {!stem.recognised && stem.top3?.length > 0 && (
-            <div style={{ marginTop: '10px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.12em', marginBottom: '4px' }}>
+            <div style = {{ marginTop: '10px' }}>
+              <div style = {{ fontFamily: 'var(--font-mono)', fontSize: '9px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.12em', marginBottom: '4px' }}>
                 POSSIBLE MATCHES
               </div>
               {stem.top3.map((item, i) => (
-                <div key={i} style={{
+                <div key = {i} style = {{
                   display: 'flex', justifyContent: 'space-between',
                   fontFamily: 'var(--font-mono)', fontSize: '11px',
                   color: i === 0 ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.3)',
@@ -269,26 +267,26 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
         </div>
 
         {/* Divider */}
-        <div style={{
+        <div style = {{
           height: '1px', margin: '0 22px',
           background: `linear-gradient(to right, ${colors.border}, transparent)`,
           opacity: 0.4, marginBottom: '14px',
         }} />
 
         {/* ── WAVEFORM PLAYER ── */}
-        <div style={{ padding: '0 18px 14px 18px' }}>
+        <div style = {{ padding: '0 18px 14px 18px' }}>
           <WaveformPlayer audioUrl={audioUrl} accentColor={colors.hex} />
         </div>
 
         {/* Divider */}
-        <div style={{ height: '1px', margin: '0 22px 14px', background: 'rgba(255,255,255,0.05)' }} />
+        <div style = {{ height: '1px', margin: '0 22px 14px', background: 'rgba(255,255,255,0.05)' }} />
 
         {/* ── DOWNLOAD ── */}
-        <div style={{ padding: '0 18px 14px' }}>
+        <div style = {{ padding: '0 18px 14px' }}>
           <button
-            onClick={handleDownload}
-            disabled={downloading}
-            style={{
+            onClick = {handleDownload}
+            disabled = {downloading}
+            style = {{
               width: '100%', padding: '11px',
               background: downloading ? 'rgba(255,255,255,0.04)' : colors.bg,
               border: `1px solid ${colors.border}`,
@@ -300,12 +298,12 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
               cursor: downloading ? 'default' : 'pointer',
               transition: 'all 200ms ease',
             }}
-            onMouseEnter={e => !downloading && (e.currentTarget.style.background = colors.border)}
-            onMouseLeave={e => !downloading && (e.currentTarget.style.background = colors.bg)}
+            onMouseEnter = {e => !downloading && (e.currentTarget.style.background = colors.border)}
+            onMouseLeave = {e => !downloading && (e.currentTarget.style.background = colors.bg)}
           >
             {downloading ? (
               <>
-                <div style={{
+                <div style = {{
                   width: '11px', height: '11px',
                   border: '2px solid currentColor', borderTopColor: 'transparent',
                   borderRadius: '50%',
@@ -314,22 +312,22 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
                 }} />
                 DOWNLOADING...
               </>
-            ) : <>⬇ DOWNLOAD WAV</>}
+            ) : <> ⬇ DOWNLOAD WAV </>}
           </button>
           {dlError && (
-            <p style={{ marginTop: '8px', fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#ff4444', textAlign: 'center' }}>
+            <p style = {{ marginTop: '8px', fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#ff4444', textAlign: 'center' }}>
               ⚠ {dlError}
             </p>
           )}
         </div>
 
-        {/* ── SPECTROGRAM (BOTTOM, collapsible with slide animation) ── */}
+        {/* ── SPECTROGRAM ── */}
         {spectrogramUrl && (
           <div>
             {/* Toggle button */}
             <button
-              onClick={() => setSpectrogramOpen(o => !o)}
-              style={{
+              onClick = {() => setSpectrogramOpen(o => !o)}
+              style = {{
                 width: '100%',
                 padding: '11px 22px',
                 background: spectrogramOpen ? `rgba(255,255,255,0.04)` : 'transparent',
@@ -345,52 +343,50 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
                 justifyContent: 'space-between',
                 transition: 'all 220ms ease',
               }}
-              onMouseEnter={e => { if (!spectrogramOpen) e.currentTarget.style.color = 'rgba(255,255,255,0.6)' }}
-              onMouseLeave={e => { if (!spectrogramOpen) e.currentTarget.style.color = 'rgba(255,255,255,0.32)' }}
+              onMouseEnter = {e => { if (!spectrogramOpen) e.currentTarget.style.color = 'rgba(255,255,255,0.6)' }}
+              onMouseLeave = {e => { if (!spectrogramOpen) e.currentTarget.style.color = 'rgba(255,255,255,0.32)' }}
             >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
-                <span style={{ fontSize: '12px' }}>◈</span> SPECTROGRAM
+              <span style = {{ display: 'flex', alignItems: 'center', gap: '7px' }}>
+                <span style = {{ fontSize: '12px' }}> ◈ </span> SPECTROGRAM
               </span>
-              <span style={{
+              <span style = {{
                 display: 'inline-block',
                 transform: spectrogramOpen ? 'rotate(180deg)' : 'none',
                 transition: 'transform 300ms ease',
                 fontSize: '8px', opacity: 0.7,
-              }}>▼</span>
+              }}> ▼ </span>
             </button>
 
-            {/* Slide animation wrapper */}
             <div
-              ref={specRef}
-              style={{
+              ref = {specRef}
+              style = {{
                 maxHeight: spectrogramOpen ? '300px' : '0px',
                 overflow: 'hidden',
                 transition: 'max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1)',
               }}
             >
               <div
-                onClick={() => setLightboxOpen(true)}
-                style={{ cursor: 'zoom-in', position: 'relative', overflow: 'hidden' }}
-                title="Click to enlarge"
+                onClick = {() => setLightboxOpen(true)}
+                style = {{ cursor: 'zoom-in', position: 'relative', overflow: 'hidden' }}
+                title = "Click to enlarge"
               >
-                {/* Hover magnify hint */}
                 <div
-                  style={{
+                  style = {{
                     position: 'absolute', inset: 0,
                     background: 'rgba(0,0,0,0)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     opacity: 0, transition: 'all 200ms ease', zIndex: 2,
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter = {e => {
                     e.currentTarget.style.opacity = '1'
                     e.currentTarget.style.background = 'rgba(0,0,0,0.38)'
                   }}
-                  onMouseLeave={e => {
+                  onMouseLeave = {e => {
                     e.currentTarget.style.opacity = '0'
                     e.currentTarget.style.background = 'rgba(0,0,0,0)'
                   }}
                 >
-                  <div style={{
+                  <div style = {{
                     background: 'rgba(0,0,0,0.75)',
                     border: '1px solid rgba(255,255,255,0.18)',
                     borderRadius: '8px', padding: '8px 14px',
@@ -402,10 +398,10 @@ export default function StemCard({ stem, index, animDelay = 0 }) {
                   </div>
                 </div>
                 <img
-                  src={spectrogramUrl}
-                  alt={`${stem.name} spectrogram`}
-                  style={{ width: '100%', display: 'block', maxHeight: '260px', objectFit: 'cover' }}
-                  onError={e => { e.currentTarget.parentElement.parentElement.style.display = 'none' }}
+                  src = {spectrogramUrl}
+                  alt = {`${stem.name} spectrogram`}
+                  style = {{ width: '100%', display: 'block', maxHeight: '260px', objectFit: 'cover' }}
+                  onError = {e => { e.currentTarget.parentElement.parentElement.style.display = 'none' }}
                 />
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function Loader() {
   const bars = Array.from({ length: 32 })
 
   return (
-    <div style={{
+    <div style = {{
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -41,7 +41,7 @@ export default function Loader() {
       animation: 'fadeIn 0.4s ease',
     }}>
       {/* Animated waveform */}
-      <div style={{
+      <div style = {{
         display: 'flex',
         alignItems: 'center',
         gap: '3px',
@@ -50,8 +50,8 @@ export default function Loader() {
       }}>
         {bars.map((_, i) => (
           <div
-            key={i}
-            style={{
+            key = {i}
+            style = {{
               width: 4,
               borderRadius: 2,
               background: `linear-gradient(to top, var(--amber-dim), var(--amber))`,
@@ -68,7 +68,7 @@ export default function Loader() {
       </div>
 
       {/* Status label */}
-      <div style={{
+      <div style = {{
         fontFamily: 'var(--font-mono)',
         fontSize: '11px',
         letterSpacing: '0.15em',
@@ -80,7 +80,7 @@ export default function Loader() {
       </div>
 
       {/* Rotating message */}
-      <h2 style={{
+      <h2 style = {{
         fontFamily: 'var(--font-display)',
         fontSize: '20px',
         fontWeight: 600,
@@ -93,7 +93,7 @@ export default function Loader() {
         {MESSAGES[msgIdx]}
       </h2>
 
-      <p style={{
+      <p style = {{
         fontFamily: 'var(--font-mono)',
         fontSize: '12px',
         color: 'var(--text-muted)',
@@ -103,7 +103,7 @@ export default function Loader() {
       </p>
 
       {/* Timer + progress */}
-      <div style={{
+      <div style = {{
         display: 'flex',
         alignItems: 'center',
         gap: '16px',
@@ -112,7 +112,7 @@ export default function Loader() {
         borderRadius: 'var(--radius-lg)',
         border: '1px solid var(--border)',
       }}>
-        <div style={{
+        <div style = {{
           fontFamily: 'var(--font-mono)',
           fontSize: '28px',
           fontWeight: 700,
@@ -124,7 +124,7 @@ export default function Loader() {
           {String(elapsed % 60).padStart(2, '0')}
         </div>
         <div>
-          <div style={{
+          <div style = {{
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
             color: 'var(--text-muted)',
@@ -133,7 +133,7 @@ export default function Loader() {
           }}>
             ELAPSED
           </div>
-          <div style={{
+          <div style = {{
             fontFamily: 'var(--font-mono)',
             fontSize: '10px',
             color: 'var(--text-muted)',
@@ -145,7 +145,7 @@ export default function Loader() {
       </div>
 
       {/* Scanning line effect */}
-      <div style={{
+      <div style = {{
         position: 'fixed',
         top: 0, left: 0, right: 0,
         height: '1px',

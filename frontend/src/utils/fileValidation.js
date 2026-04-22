@@ -1,12 +1,13 @@
 export const ALLOWED_TYPES = ['audio/wav', 'audio/wave', 'audio/x-wav', 'audio/mpeg', 'audio/mp3']
 export const ALLOWED_EXTENSIONS = ['.wav', '.mp3']
-export const MAX_SIZE_BYTES = 50 * 1024 * 1024 // 50MB
+export const MAX_SIZE_BYTES = 50 * 1024 * 1024 // 50 mb
 
 /**
  * Validate an audio file against format and size constraints.
  * @param {File} file
  * @returns {{ valid: boolean, error: string | null }}
  */
+
 export function validateAudioFile(file) {
   if (!file) {
     return { valid: false, error: 'No file selected.' }
@@ -28,10 +29,11 @@ export function validateAudioFile(file) {
 }
 
 /**
- * Format bytes to a human-readable string.
+ * Format bytes to a human readable string.
  * @param {number} bytes
  * @returns {string}
  */
+
 export function formatBytes(bytes) {
   if (bytes < 1024) return `${bytes} B`
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
@@ -43,6 +45,7 @@ export function formatBytes(bytes) {
  * @param {number} seconds
  * @returns {string}
  */
+
 export function formatDuration(seconds) {
   if (!seconds) return '--:--'
   const m = Math.floor(seconds / 60)

@@ -35,13 +35,13 @@ const styles = {
 export default function HealthBanner({ healthy, modelsLoaded, checking, retry }) {
   if (checking) {
     return (
-      <div style={{
+      <div style = {{
         ...styles.wrapper,
         background: 'rgba(90,90,106,0.1)',
         borderColor: 'var(--border)',
         color: 'var(--text-muted)',
       }}>
-        <div style={{ ...styles.dot, background: 'var(--text-muted)', animation: 'pulse 1.2s ease infinite' }} />
+        <div style = {{ ...styles.dot, background: 'var(--text-muted)', animation: 'pulse 1.2s ease infinite' }} />
         CHECKING SERVICE STATUS...
       </div>
     )
@@ -49,42 +49,42 @@ export default function HealthBanner({ healthy, modelsLoaded, checking, retry })
 
   if (!healthy) {
     return (
-      <div style={{
+      <div style = {{
         ...styles.wrapper,
         background: 'rgba(248,113,113,0.08)',
         borderColor: 'rgba(248,113,113,0.3)',
         color: 'var(--red)',
       }}>
-        <div style={{ ...styles.dot, background: 'var(--red)' }} />
+        <div style = {{ ...styles.dot, background: 'var(--red)' }} />
         SERVICE UNAVAILABLE — Please try again later.
-        <button style={styles.retryBtn} onClick={retry}>RETRY</button>
+        <button style = {styles.retryBtn} onClick = {retry}> RETRY </button>
       </div>
     )
   }
 
   if (!modelsLoaded) {
     return (
-      <div style={{
+      <div style = {{
         ...styles.wrapper,
         background: 'rgba(245,166,35,0.08)',
         borderColor: 'rgba(245,166,35,0.3)',
         color: 'var(--amber)',
       }}>
-        <div style={{ ...styles.dot, background: 'var(--amber)', animation: 'pulse 1.2s ease infinite' }} />
+        <div style = {{ ...styles.dot, background: 'var(--amber)', animation: 'pulse 1.2s ease infinite' }} />
         AI MODELS LOADING — Please wait and refresh.
-        <button style={styles.retryBtn} onClick={retry}>REFRESH</button>
+        <button style = {styles.retryBtn} onClick = {retry}> REFRESH </button>
       </div>
     )
   }
 
   return (
-    <div style={{
+    <div style = {{
       ...styles.wrapper,
       background: 'rgba(74,222,128,0.07)',
       borderColor: 'rgba(74,222,128,0.25)',
       color: 'var(--green)',
     }}>
-      <div style={{ ...styles.dot, background: 'var(--green)' }} />
+      <div style = {{ ...styles.dot, background: 'var(--green)' }} />
       SERVICE ONLINE — MODELS READY
     </div>
   )

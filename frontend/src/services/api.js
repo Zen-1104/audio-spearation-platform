@@ -8,20 +8,22 @@ const apiClient = axios.create({
 })
 
 /**
- * Check backend health and model status.
+ * To check backend health and model status.
  * @returns {{ status: string, models_loaded: boolean }}
  */
+
 export async function checkHealth() {
   const response = await apiClient.get('/api/health')
   return response.data
 }
 
 /**
- * Upload audio file for separation and classification.
- * @param {File} file - WAV or MP3 audio file
+ * Upload audio file
+ * @param {File} file - wav or mp3 audio file
  * @param {string} domain - 'auto' | 'nature' | 'music'
  * @returns {Object} Job result with stems array
  */
+
 export async function separateAudio(file, domain = 'auto') {
   const formData = new FormData()
   formData.append('audio', file)
@@ -40,6 +42,7 @@ export async function separateAudio(file, domain = 'auto') {
  * @param {string} stemId
  * @returns {string}
  */
+
 export function getStemAudioUrl(audioUrl) {
   return `${BASE_URL}${audioUrl}`
 }
@@ -50,6 +53,7 @@ export function getStemAudioUrl(audioUrl) {
  * @param {string} stemId
  * @param {string} stemName
  */
+
 export async function downloadStem(audioUrl, stemName) {
   const url = `${BASE_URL}${audioUrl}`
   const response = await fetch(url)

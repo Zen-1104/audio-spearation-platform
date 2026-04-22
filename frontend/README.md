@@ -72,14 +72,14 @@ npm run preview
 
 ## Features
 
-- ✅ Drag-and-drop file upload with fallback picker
-- ✅ File validation (WAV/MP3 only, max 50MB)
-- ✅ Domain selection (Auto / Nature / Music)
-- ✅ Health check with user-friendly status messages
-- ✅ Animated waveform loader with elapsed timer
-- ✅ Stem cards with confidence bars, audio player, download
-- ✅ Full error handling for all API failure modes
-- ✅ Smooth page transitions
+- Drag-and-drop file upload with fallback picker
+- File validation (WAV/MP3 only, max 50MB)
+- Domain selection (Auto / Nature / Music)
+- Health check with user-friendly status messages
+- Animated waveform loader with elapsed timer
+- Stem cards with confidence bars, audio player, download
+- Full error handling for all API failure modes
+- Smooth page transitions
 
 ## Error Handling
 

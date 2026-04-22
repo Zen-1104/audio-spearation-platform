@@ -65,12 +65,11 @@ void main() {
 const FluidPlane = () => {
   const meshRef = useRef()
 
-  // NEW "EGGPLANT/AMETHYST" THEME (Forcing the red channel higher to kill the blue)
   const uniforms = useMemo(() => ({
     u_time: { value: 0 },
-    u_color1: { value: new THREE.Color('#a800d4') }, // Bright Amethyst (Very little blue)
-    u_color2: { value: new THREE.Color('#4d0066') }, // Deep Eggplant 
-    u_color3: { value: new THREE.Color('#150020') }  // Pitch black with a warm plum tint
+    u_color1: { value: new THREE.Color('#a800d4') }, 
+    u_color2: { value: new THREE.Color('#4d0066') }, 
+    u_color3: { value: new THREE.Color('#150020') }  
   }), [])
 
   useFrame((state) => {
@@ -80,12 +79,12 @@ const FluidPlane = () => {
   })
 
   return (
-    <mesh ref={meshRef}>
-      <planeGeometry args={[2, 2]} />
+    <mesh ref = {meshRef}>
+      <planeGeometry args = {[2, 2]} />
       <shaderMaterial
-        uniforms={uniforms}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
+        uniforms = {uniforms}
+        vertexShader = {vertexShader}
+        fragmentShader = {fragmentShader}
       />
     </mesh>
   )
@@ -93,8 +92,8 @@ const FluidPlane = () => {
 
 const LiquidBackground = () => {
   return (
-    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    <div style = {{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}>
+      <Canvas camera = {{ position: [0, 0, 1] }}>
         <FluidPlane />
       </Canvas>
     </div>

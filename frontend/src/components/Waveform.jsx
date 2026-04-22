@@ -18,7 +18,6 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
   const [duration, setDuration] = useState(0)
   const [audioError, setAudioError] = useState(false)
 
-  // Pre-compute static decorative bar heights once
   const staticBars = useRef(
     Array.from({ length: 52 }, (_, i) =>
       0.1 + 0.38 * Math.abs(Math.sin(i * 0.37 + 0.5)) +
@@ -151,32 +150,31 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
   const progress = duration > 0 ? currentTime / duration : 0
 
   return (
-    <div style={{ userSelect: 'none' }}>
-      {/* Waveform canvas — click to play/pause */}
+    <div style = {{ userSelect: 'none' }}>
       <div
-        onClick={togglePlay}
-        style={{
+        onClick = {togglePlay}
+        style = {{
           cursor: audioError ? 'not-allowed' : 'pointer',
           marginBottom: '10px',
           opacity: audioError ? 0.4 : 1,
         }}
-        title={audioError ? 'Audio unavailable' : playing ? 'Pause' : 'Play'}
+        title = {audioError ? 'Audio unavailable' : playing ? 'Pause' : 'Play'}
       >
         <canvas
-          ref={canvasRef}
-          width={600}
-          height={68}
-          style={{ width: '100%', height: '68px', display: 'block' }}
+          ref = {canvasRef}
+          width = {600}
+          height = {68}
+          style = {{ width: '100%', height: '68px', display: 'block' }}
         />
       </div>
 
       {/* Controls row */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style = {{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         {/* Play/pause button */}
         <button
-          onClick={togglePlay}
-          disabled={audioError}
-          style={{
+          onClick = {togglePlay}
+          disabled = {audioError}
+          style = {{
             width: '30px',
             height: '30px',
             borderRadius: '50%',
@@ -195,10 +193,10 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
           {audioError ? '✕' : playing ? '⏸' : '▶'}
         </button>
 
-        {/* Progress scrubber */}
+        {/* Progress bar */}
         <div
-          onClick={seek}
-          style={{
+          onClick = {seek}
+          style = {{
             flex: 1,
             height: '3px',
             background: 'var(--bg-elevated)',
@@ -208,7 +206,7 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
             border: '1px solid var(--border)',
           }}
         >
-          <div style={{
+          <div style = {{
             position: 'absolute',
             left: 0, top: 0,
             height: '100%',
@@ -221,7 +219,7 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
         </div>
 
         {/* Time display */}
-        <span style={{
+        <span style = {{
           fontFamily: 'var(--font-mono)',
           fontSize: '10px',
           color: 'var(--text-muted)',
@@ -236,25 +234,25 @@ export default function WaveformVisualizer({ audioUrl, color = '#f5a623' }) {
 
       {/* Hidden audio element */}
       <audio
-        ref={audioRef}
-        src={audioUrl}
-        crossOrigin="anonymous"
-        preload="metadata"
-        onPlay={() => { setPlaying(true); drawLive() }}
-        onPause={() => {
+        ref = {audioRef}
+        src = {audioUrl}
+        crossOrigin = "anonymous"
+        preload = "metadata"
+        onPlay = {() => { setPlaying(true); drawLive() }}
+        onPause = {() => {
           setPlaying(false)
           cancelAnimationFrame(rafRef.current)
           drawStatic()
         }}
-        onEnded={() => {
+        onEnded = {() => {
           setPlaying(false)
           cancelAnimationFrame(rafRef.current)
           drawStatic()
           setCurrentTime(0)
         }}
-        onTimeUpdate={() => setCurrentTime(audioRef.current?.currentTime || 0)}
-        onLoadedMetadata={() => setDuration(audioRef.current?.duration || 0)}
-        onError={() => setAudioError(true)}
+        onTimeUpdate = {() => setCurrentTime(audioRef.current?.currentTime || 0)}
+        onLoadedMetadata = {() => setDuration(audioRef.current?.duration || 0)}
+        onError = {() => setAudioError(true)}
       />
     </div>
   )

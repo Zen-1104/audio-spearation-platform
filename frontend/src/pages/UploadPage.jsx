@@ -75,7 +75,7 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
   }
 
   return (
-    <div style={{ 
+    <div style = {{ 
       minHeight: '150vh', 
       width: '100%', 
       position: 'relative', 
@@ -84,8 +84,8 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
       <LiquidBackground />
 
       <div
-        className="page-enter"
-        style={{
+        className = "page-enter"
+        style = {{
           position: 'relative',
           zIndex: 1, 
           maxWidth: 640,
@@ -94,8 +94,8 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
         }}
       >
         <button
-          onClick={() => navigate('/')}
-          style={{
+          onClick = {() => navigate('/')}
+          style = {{
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
@@ -111,20 +111,20 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             marginBottom: '40px',
             transition: 'color 200ms ease',
           }}
-          onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}
+          onMouseEnter = {e => e.currentTarget.style.color = '#fff'}
+          onMouseLeave = {e => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}
         >
           ← BACK TO DOMAINS
         </button>
 
-        <div style={{ marginBottom: '40px' }}>
-          <div style={{
+        <div style = {{ marginBottom: '40px' }}>
+          <div style = {{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '12px',
             marginBottom: '20px',
           }}>
-            <div style={{
+            <div style = {{
               width: 40,
               height: 40,
               background: '#b829ff', 
@@ -139,7 +139,7 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             }}>
               {config.icon}
             </div>
-            <span style={{
+            <span style = {{
               fontFamily: 'var(--font-mono)',
               fontSize: '13px',
               fontWeight: 700,
@@ -151,7 +151,7 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             </span>
           </div>
 
-          <h1 style={{
+          <h1 style = {{
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(36px, 6vw, 56px)', 
             fontWeight: 900,
@@ -160,11 +160,11 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             color: '#ffffff',
             marginBottom: '16px',
           }}>
-            {config.title} Source<br />
-            <span style={{ color: '#b829ff' }}>Separation</span> 
+            {config.title} Source <br />
+            <span style = {{ color: '#b829ff' }}> Separation </span> 
           </h1>
 
-          <p style={{
+          <p style = {{
             fontFamily: '"Plus Jakarta Sans", sans-serif',
             color: 'rgba(255, 255, 255, 0.65)',
             fontSize: '16px',
@@ -175,7 +175,7 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             {config.description}
           </p>
 
-          <p style={{
+          <p style = {{
             fontFamily: 'var(--font-mono)',
             fontSize: '12px',
             color: 'rgba(255, 255, 255, 0.4)',
@@ -187,12 +187,17 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
 
         <HealthBanner {...healthState} />
 
-        <div style={{ marginBottom: '24px' }}>
-          <FileUpload file={file} onFile={handleFile} error={fileError} />
+        <div style = {{ marginBottom: '24px' }}>
+
+          <FileUpload 
+          file = {file} 
+          onFile = {handleFile} 
+          error = {fileError} />
+
         </div>
 
         {previewUrl && file && (
-          <div style={{
+          <div style = {{
             marginBottom: '24px',
             background: 'rgba(255, 255, 255, 0.03)', 
             border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -201,9 +206,9 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             padding: '20px',
             animation: 'fadeUp 0.3s ease',
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-              <div style={{ flex: 1, overflow: 'hidden' }}>
-                <div style={{
+            <div style = {{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+              <div style = {{ flex: 1, overflow: 'hidden' }}>
+                <div style = {{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '14px',
                   color: '#ffffff',
@@ -214,33 +219,33 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
                 }}>
                   {file.name}
                 </div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>
+                <div style = {{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>
                   {formatSize(file.size)} · {file.type || 'audio'}
                 </div>
               </div>
 
               <button
-                onClick={() => { setFile(null); setFileError(null); setPreviewUrl(null); }}
-                style={{
+                onClick = {() => { setFile(null); setFileError(null); setPreviewUrl(null); }}
+                style = {{
                   background: 'none', border: 'none', color: 'rgba(255, 255, 255, 0.5)',
                   fontSize: '28px', cursor: 'pointer', padding: '0', lineHeight: 1, flexShrink: 0,
                   transition: 'color 200ms ease'
                 }}
-                onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
-                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}
+                onMouseEnter = {e => e.currentTarget.style.color = '#ffffff'}
+                onMouseLeave = {e => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.5)'}
               >
                 ×
               </button>
             </div>
             
-            <WaveformPlayer audioUrl={previewUrl} />
+            <WaveformPlayer audioUrl = {previewUrl} />
           </div>
         )}
 
         <button
-          onClick={handleSubmit}
-          disabled={!canSubmit}
-          style={{
+          onClick = {handleSubmit}
+          disabled = {!canSubmit}
+          style = {{
             width: '100%',
             padding: '18px',
             background: canSubmit ? '#b829ff' : 'rgba(255, 255, 255, 0.05)',
@@ -254,8 +259,8 @@ export default function UploadPage({ onSubmit, healthState, domain, error, onCle
             transition: 'all 200ms ease',
             cursor: canSubmit ? 'pointer' : 'not-allowed',
           }}
-          onMouseEnter={e => canSubmit && (e.currentTarget.style.background = '#d05cff')}
-          onMouseLeave={e => canSubmit && (e.currentTarget.style.background = '#b829ff')}
+          onMouseEnter = {e => canSubmit && (e.currentTarget.style.background = '#d05cff')}
+          onMouseLeave = {e => canSubmit && (e.currentTarget.style.background = '#b829ff')}
         >
           {!healthState.healthy
             ? '— Service Unavailable —'

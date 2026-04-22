@@ -23,9 +23,9 @@ export default function ResultsPage({ result, onReset, fileName }) {
 
   if (!result || !result.stems) {
     return (
-      <div style={pageWrapperStyle}>
-        <div style={backgroundBreakoutStyle}><LiquidBackground /></div>
-        <div style={{
+      <div style = {pageWrapperStyle}>
+        <div style = {backgroundBreakoutStyle}><LiquidBackground /></div>
+        <div style = {{
           position: 'relative', zIndex: 1,
           display: 'flex', justifyContent: 'center', paddingTop: '100px',
           fontFamily: 'var(--font-mono)', color: 'rgba(255,255,255,0.3)', fontSize: '12px',
@@ -40,22 +40,22 @@ export default function ResultsPage({ result, onReset, fileName }) {
 
   if (stems.length === 0) {
     return (
-      <div style={pageWrapperStyle}>
-        <div style={backgroundBreakoutStyle}><LiquidBackground /></div>
-        <div style={{
+      <div style = {pageWrapperStyle}>
+        <div style = {backgroundBreakoutStyle}><LiquidBackground /></div>
+        <div style = {{
           position: 'relative', zIndex: 1, maxWidth: 640, margin: '0 auto',
           padding: '120px 24px', textAlign: 'center', animation: 'fadeUp 0.4s ease',
         }}>
-          <div style={{ fontSize: '48px', marginBottom: '24px', opacity: 0.4 }}>◎</div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#fff', marginBottom: '12px' }}>
+          <div style = {{ fontSize: '48px', marginBottom: '24px', opacity: 0.4 }}> ◎ </div>
+          <h2 style = {{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: 800, color: '#fff', marginBottom: '12px' }}>
             No Separable Sources Detected
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '32px', fontSize: '14px', fontFamily: 'var(--font-mono)' }}>
+          <p style = {{ color: 'rgba(255,255,255,0.5)', marginBottom: '32px', fontSize: '14px', fontFamily: 'var(--font-mono)' }}>
             Try a different file or domain.
           </p>
           <button
-            onClick={onReset}
-            style={{
+            onClick = {onReset}
+            style = {{
               padding: '14px 32px', background: '#b829ff', border: 'none',
               borderRadius: '10px', color: '#fff', fontFamily: 'var(--font-display)',
               fontWeight: 800, fontSize: '15px', cursor: 'pointer',

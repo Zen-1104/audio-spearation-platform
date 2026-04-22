@@ -9,7 +9,7 @@ const DOMAINS = [
 export default function DomainToggle({ value, onChange }) {
   return (
     <div>
-      <p style={{
+      <p style = {{
         fontFamily: 'var(--font-mono)',
         fontSize: '11px',
         letterSpacing: '0.12em',
@@ -18,7 +18,7 @@ export default function DomainToggle({ value, onChange }) {
       }}>
         SEPARATION DOMAIN
       </p>
-      <div style={{
+      <div style = {{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         gap: '8px',
@@ -27,9 +27,9 @@ export default function DomainToggle({ value, onChange }) {
           const active = value === d.value
           return (
             <button
-              key={d.value}
-              onClick={() => onChange(d.value)}
-              style={{
+              key = {d.value}
+              onClick = {() => onChange(d.value)}
+              style = {{
                 padding: '14px 12px',
                 borderRadius: 'var(--radius)',
                 border: `1px solid ${active ? 'var(--amber)' : 'var(--border)'}`,
@@ -43,8 +43,8 @@ export default function DomainToggle({ value, onChange }) {
                 cursor: 'pointer',
               }}
             >
-              <span style={{ fontSize: '18px' }}>{d.icon}</span>
-              <span style={{
+              <span style = {{ fontSize: '18px' }}> {d.icon} </span>
+              <span style = {{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '11px',
                 fontWeight: 700,
@@ -52,7 +52,7 @@ export default function DomainToggle({ value, onChange }) {
               }}>
                 {d.label}
               </span>
-              <span style={{
+              <span style = {{
                 fontFamily: 'var(--font-display)',
                 fontSize: '10px',
                 color: active ? 'rgba(245,166,35,0.7)' : 'var(--text-muted)',

@@ -70,24 +70,24 @@ function InnerApp() {
     }
 
     if (view === VIEWS.RESULTS && result) {
-      return <ResultsPage result={result} onReset={handleReset} fileName={fileName} />
+      return <ResultsPage result = {result} onReset = {handleReset} fileName = {fileName} />
     }
 
     return (
       <UploadPage
-        domain={domain}
-        onSubmit={handleSubmit}
-        healthState={healthState}
-        error={error}
-        onClearError={() => setError(null)}
+        domain = {domain}
+        onSubmit = {handleSubmit}
+        healthState = {healthState}
+        error = {error}
+        onClearError = {() => setError(null)}
       />
     )
   }
 
   return (
-    <div style={{ minHeight: '100vh', position: 'relative' }}>
+    <div style = {{ minHeight: '100vh', position: 'relative' }}>
 
-      <div style={{
+      <div style = {{
         position:     'fixed',
         top:          '-20%',
         left:         '50%',
@@ -100,7 +100,7 @@ function InnerApp() {
       }} />
 
       {error && view === VIEWS.UPLOAD && (
-        <div style={{
+        <div style = {{
           position:  'fixed',
           top:       20,
           left:      '50%',
@@ -118,8 +118,8 @@ function InnerApp() {
           maxWidth:  '90vw',
           backdropFilter: 'blur(10px)',
         }}>
-          <span style={{ color: '#ff4d4d', fontSize: '16px' }}>⚠</span>
-          <span style={{
+          <span style = {{ color: '#ff4d4d', fontSize: '16px' }}> ⚠ </span>
+          <span style = {{
             fontFamily: 'var(--font-mono), monospace',
             fontSize:   '13px',
             color:      '#ff4d4d',
@@ -127,8 +127,8 @@ function InnerApp() {
             {error}
           </span>
           <button
-            onClick={() => setError(null)}
-            style={{
+            onClick = {() => setError(null)}
+            style = {{
               background: 'none',
               border:     'none',
               color:      'rgba(255,255,255,0.5)',
@@ -143,11 +143,11 @@ function InnerApp() {
         </div>
       )}
 
-      <div style={{ position: 'relative', zIndex: 1 }}>
+      <div style = {{ position: 'relative', zIndex: 1 }}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/music" element={renderView('music')} />
-          <Route path="/nature" element={renderView('nature')} />
+          <Route path = "/" element = {<HomePage />} />
+          <Route path = "/music" element = {renderView('music')} />
+          <Route path = "/nature" element = {renderView('nature')} />
         </Routes>
       </div>
     </div>
