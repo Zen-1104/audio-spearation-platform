@@ -21,9 +21,9 @@ from Core.inference import (
 )
 
 app = Flask(__name__)
-CORS(app, origins=[
+CORS(app, origins = [
     "https://audio-spearation-platform.vercel.app",
-    "https://audio-spearation-platform-ten.vercel.app/",
+    "https://audio-spearation-platform-ten.vercel.app",
     "https://audio-spearation-platform-710uptim2-zen-1104s-projects.vercel.app",
     "http://localhost:5001",
     "http://localhost:3000"
