@@ -14,9 +14,8 @@ RUN pip install --no-cache-dir torch torchaudio torchvision \
     --index-url https://download.pytorch.org/whl/cpu
 
 RUN pip install --no-cache-dir flask flask-cors werkzeug demucs \
-    numpy librosa soundfile scipy scikit-learn matplotlib \
+    numpy pandas librosa soundfile scipy scikit-learn matplotlib \
     Pillow requests tqdm omegaconf einops julius PyYAML gunicorn
-
 COPY . .
 
 EXPOSE $PORT
