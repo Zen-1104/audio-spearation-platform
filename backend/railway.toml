@@ -3,4 +3,4 @@ builder = "dockerfile"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "gunicorn Api.app:app --bind 0.0.0.0:$PORT --timeout 300 --workers 1"
+startCommand = "sh -c 'gunicorn Api.app:app --bind 0.0.0.0:${PORT} --timeout 300 --workers 1'"
