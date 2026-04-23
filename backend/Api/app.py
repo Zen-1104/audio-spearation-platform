@@ -21,7 +21,11 @@ from Core.inference import (
 )
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=[
+    "https://audio-spearation-platform-710uptim2-zen-1104s-projects.vercel.app",
+    "http://localhost:5001",
+    "http://localhost:3000"
+])
 
 UPLOAD_FOLDER = 'temp_uploads'
 STEMS_BASE    = 'separated/htdemucs'
