@@ -21,11 +21,11 @@ RUN pip install --no-cache-dir flask flask-cors werkzeug demucs \
 RUN python -c "from demucs.pretrained import get_model; get_model('htdemucs')"
 
 # Cache bust — update this value to force a full rebuild
-ARG CACHE_BUST=3
+ARG CACHE_BUST=4
 RUN echo "Cache bust: $CACHE_BUST"
 
 COPY . .
 
 EXPOSE $PORT
 
-CMD ["sh", "-c", "gunicorn Api.app:app --bind 0.0.0.0:${PORT} --timeout 600 --workers 1"]
+CMD ["sh", "-c", "gunicorn Api.app:app --bind 0.0.0.0:${PORT} --timeout 600 --workers 1 --capture-output --log-level debug"]

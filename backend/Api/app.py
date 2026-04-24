@@ -1,6 +1,10 @@
 import os
 import time
+
 import sys
+sys.stdout.flush()
+sys.stderr.flush()
+
 import zipfile
 import io
 from flask import send_file
