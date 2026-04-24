@@ -4,8 +4,8 @@ steps:
       'build',
       '--no-cache',
       '-t', 'asia-south1-docker.pkg.dev/project-127cfc75-bc57-400d-a9d/cloud-run-source-deploy/audio-spearation-platform:$COMMIT_SHA',
-      '-f', 'Dockerfile',
-      '.'
+      '-f', 'backend/Dockerfile',
+      'backend'
     ]
 
   - name: 'gcr.io/cloud-builders/docker'
