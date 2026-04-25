@@ -80,11 +80,6 @@ def run_demucs(file_path):
     return output_path, base_name
 
 # Routes
-@app.route('/', methods = ['GET'])
-def index():
-    readme_path = os.path.join(BASE_DIR, 'README.md')
-    return send_file(readme_path, mimetype = 'text/plain')
-
 @app.route('/api/health', methods = ['GET'])
 def health_check():
     return jsonify({
