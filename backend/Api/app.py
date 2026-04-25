@@ -80,7 +80,6 @@ def run_demucs(file_path):
     return output_path, base_name
 
 # Routes
-
 @app.route('/', methods = ['GET'])
 def index():
     readme_path = os.path.join(BASE_DIR, 'README.md')
