@@ -33,7 +33,6 @@ app = Flask(__name__)
 CORS(app, origins = [
     "https://audio-separation-platform.vercel.app",
     "https://audio-separation-platform-ten.vercel.app",
-    "https://audio-separation-platform-710uptim2-zen-1104s-projects.vercel.app",
     "https://zen-4011-audio-separation-model.hf.space",
     "http://localhost:5001",
     "http://localhost:3000"

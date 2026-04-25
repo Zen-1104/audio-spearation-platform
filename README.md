@@ -5,7 +5,7 @@
 ---
 A full-stack machine learning application that separates audio files into individual stems and classifies each stem by genre or environmental sound category. The platform supports two distinct modes — one for music and one for nature recordings — each backed by a custom-trained ResNet-18 model.
 
-Live demo: [audio-spearation-platform.vercel.app](https://audio-spearation-platform.vercel.app)
+Live demo: [audio-separation-platform.vercel.app](https://audio-separation-platform.vercel.app)
 
 ---
 
@@ -34,7 +34,7 @@ The project is split into two independently deployed services:
 ## Project structure
 
 ```
-audio-spearation-platform/
+audio-separation-platform/
 ├── backend/
 │   ├── Api/
 │   │   └── app.py              # Flask routes and request handling
